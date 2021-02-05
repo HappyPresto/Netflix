@@ -1,5 +1,9 @@
 import styled from 'styled-components/macro';
 
+interface IInner {
+    direction: String
+}
+
 export const ContainerS = styled.div`
     @media (max-width: 1000px) {
         ${Item}:last-of-type h2 {
@@ -16,7 +20,7 @@ export const Item = styled.div`
     overflow: hidden;
 `;
 
-export const Inner = styled.div`
+/*export const Inner = styled.div`
     display: flex;
     align-items: center;
     flex-direction: ${({ direction }) => direction};
@@ -28,7 +32,23 @@ export const Inner = styled.div`
     @media (max-width: 1000px) {
         flex-direction: column;
     }
+`;*/
+
+const Inner: React.FC<IInner> = ({direction}) => {
+    styled.div`
+        display: flex;
+        align-items: center;
+        flex-direction: ${({ direction }) => direction};
+        justify-content: space-between;
+        max-width: 1100px;
+        margin: auto;
+        width: 100%;
+
+        @media (max-width: 1000px) {
+            flex-direction: column;
+        }
 `;
+}
 
 export const ImageS = styled.img`
     max-width: 100%;
@@ -62,3 +82,5 @@ export const SubTitleS = styled.h2`
         font-size: 18px;
     }
 `;
+
+export default Inner

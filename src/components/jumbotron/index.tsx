@@ -10,10 +10,10 @@ interface IImage {
     alt: string
 }
 
-const Jumbotron: React.FC<IJumbotron> = ({children, ...restProps}) => {
+const Jumbotron: React.FC<IJumbotron> = ({children, direction, ...restProps}) => {
     return (
         <Item {...restProps}>
-            <Inner>
+            <Inner direction={direction}>
                 {children}
             </Inner>
         </Item>

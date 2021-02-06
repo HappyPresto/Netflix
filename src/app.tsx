@@ -9,8 +9,8 @@ const App: React.FC = () => {
       {jumboData.map((item) => {
         return (
           <Jumbotron
-            key={item.id} 
-            direction={item.direction}
+          key={item.id}
+          direction={item.direction}
           >
             <Jumbotron.Pane>
               <Jumbotron.Title>{item.title}</Jumbotron.Title>
@@ -20,10 +20,10 @@ const App: React.FC = () => {
               <Jumbotron.Image src={item.image} alt={item.alt} />
             </Jumbotron.Pane>
           </Jumbotron>
-        )
+        );
       })}
     </Jumbotron.Container>
   );
-}
+};
 
 export default App;

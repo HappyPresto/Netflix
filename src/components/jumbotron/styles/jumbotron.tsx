@@ -1,9 +1,5 @@
 import styled from 'styled-components/macro';
 
-/*interface IInner {
-    direction: String
-}*/
-
 export const Item = styled.div`
   display: flex;
   border-bottom: 8px solid #222;
@@ -12,35 +8,19 @@ export const Item = styled.div`
   overflow: hidden;
 `;
 
-export const Inner = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: ${({ direction }) => direction};
-  justify-content: space-between;
-  max-width: 1100px;
-  margin: auto;
-  width: 100%;
+export const Inner = styled.div<{direction: string}>`
+    display: flex;
+    align-items: center;
+    flex-direction: ${({ direction }) => direction};
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: auto;
+    width: 100%;
 
-  @media (max-width: 1000px) {
-    flex-direction: column;
-  }
+    @media (max-width: 1000px) {
+        flex-direction: column;
+    }
 `;
-
-/*const Inner: React.FC<IInner> = ({direction}) => {
-    styled.div`
-        display: flex;
-        align-items: center;
-        flex-direction: ${({ direction }) => direction};
-        justify-content: space-between;
-        max-width: 1100px;
-        margin: auto;
-        width: 100%;
-
-        @media (max-width: 1000px) {
-            flex-direction: column;
-        }
-`;
-}*/
 
 export const ImageS = styled.img`
   max-width: 100%;

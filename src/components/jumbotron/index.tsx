@@ -13,7 +13,7 @@ interface IImage {
 const Jumbotron: React.FC<IJumbotron> = ({ children, direction, ...restProps }) => {
   return (
     <Item {...restProps}>
-      <Inner>{children}</Inner>
+      <Inner direction={direction}>{children}</Inner>
     </Item>
   );
 };

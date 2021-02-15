@@ -14,12 +14,16 @@ export const ContainerS = styled.div`
 `;
 
 export const InputS = styled.input`
-    max-width: 450px;
+    max-width: 425px;
     width: 100%;
     border: 0;
     padding: 10px;
     height: 70px;
     box-sizing: border-box;    
+
+    &:focus {
+        outline: none;
+    }
 `;
 
 export const ButtonS = styled.button`

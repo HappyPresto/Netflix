@@ -12,7 +12,7 @@ const faqsContainer: React.FC = () => {
                     <Accordion.Header>{item.header}</Accordion.Header>
                     <Accordion.Body>{item.body}</Accordion.Body>
                 </Accordion.Item>
-            )};
+            )}
 
             <OptForm>
                 <OptForm.Input placeholder="Email address" />

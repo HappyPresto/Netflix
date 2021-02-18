@@ -4,6 +4,8 @@ import 'normalize.css';
 import App from './app';
 import { GlobalStyles } from './global-styles'; 
 import CSS from 'csstype';
+import { firebase } from './lib/firebase.prod';
+import FirebaseContext from './context/firebase';
 
 const GlobalStylesIsBroken: CSS.Properties = {
 	fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
@@ -14,8 +16,10 @@ const GlobalStylesIsBroken: CSS.Properties = {
 
 render(
 	<div style={GlobalStylesIsBroken}>
-		<GlobalStyles />
-		<App/>
+		<FirebaseContext.Provider value={{firebase}}>
+			<GlobalStyles />
+			<App/>
+		</FirebaseContext.Provider>
 	</div>,
 	document.getElementById('root')
 );

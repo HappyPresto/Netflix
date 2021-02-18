@@ -17,7 +17,7 @@ export const InnerS = styled.div`
 export const ItemS = styled.div`
     color: white;
     margin-bottom: 10px;
-    width: 670px;
+    width: 700px;
     align-self: center;
 
     &:first-of-type {

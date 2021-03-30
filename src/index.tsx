@@ -16,7 +16,7 @@ const GlobalStylesIsBroken: CSS.Properties = {
 
 render(
 	<div style={GlobalStylesIsBroken}>
-		<FirebaseContext.Provider value={{firebase}}>
+		<FirebaseContext.Provider value={{ firebase }}>
 			<GlobalStyles />
 			<App/>
 		</FirebaseContext.Provider>

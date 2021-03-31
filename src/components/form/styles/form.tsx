@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { Link as ReactRouterLink } from 'react-router-dom';
 
 export const ContainerS = styled.div`
     display: flex;
@@ -50,7 +51,7 @@ export const TextSmallS = styled.p`
     color: #8c8c8c;
 `;
 
-export const LinkS = styled.a`
+export const LinkS = styled(ReactRouterLink)`
     color: white;
     text-decoration: none;
 

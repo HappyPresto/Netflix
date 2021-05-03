@@ -4,7 +4,7 @@ import FirebaseContext from '../context/firebase';
 import HeaderContainer from '../containers/header';
 import FooterContainer from '../containers/footer';
 import { Form } from '../components';
-import * as ROUTES from '../constans/routes';
+import { AppRoute } from '../constans/routes';
 
 const SignUp: React.FC = () => {
     const history = useHistory();
@@ -26,7 +26,7 @@ const SignUp: React.FC = () => {
                 photoURL: Math.floor(Math.random() * 5) + 1,
             })
             .then(() => {
-                history.push(ROUTES.BROWSE);
+                history.push(AppRoute.Browse);
             })
         })
         .catch((error: any) => {
@@ -73,7 +73,7 @@ const SignUp: React.FC = () => {
                     </Form.Base>
 
                     <Form.Text>
-                        Alreary a user? <Form.Link to={ROUTES.SIGN_IN}>Sign in now.</Form.Link>
+                        Alreary a user? <Form.Link to={AppRoute.Sign_in}>Sign in now.</Form.Link>
                     </Form.Text>
                     <Form.TextSmall>
                         This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.

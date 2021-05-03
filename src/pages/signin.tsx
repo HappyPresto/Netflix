@@ -4,7 +4,7 @@ import FirebaseContext from '../context/firebase';
 import HeaderContainer from '../containers/header';
 import FooterContainer from '../containers/footer';
 import { Form } from '../components';
-import * as ROUTES from '../constans/routes';
+import { AppRoute }from '../constans/routes';
 
 const SignIn: React.FC = () => {
     const history = useHistory();
@@ -19,7 +19,7 @@ const SignIn: React.FC = () => {
 
         firebase.auth().signInWithEmailAndPassword(emailAddress, password)
         .then(() => {
-            history.push(ROUTES.BROWSE);
+            history.push(AppRoute.Browse);
         })
         .catch((error: any) => {
             setEmailAddress("");
@@ -57,7 +57,7 @@ const SignIn: React.FC = () => {
                     </Form.Base>
 
                     <Form.Text>
-                        New to Netflix? <Form.Link to={ROUTES.SIGN_UP}>Sign up now.</Form.Link>
+                        New to Netflix? <Form.Link to={AppRoute.Sign_up}>Sign up now.</Form.Link>
                     </Form.Text>
                     <Form.TextSmall>
                         This page is protected by Google reCAPTCHA to ensure you're not a bot. Learn more.

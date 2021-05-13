@@ -32,6 +32,46 @@ export const ButtonS = styled(ReactRouterLink)<{to:any}>`
 
 export const FrameS = styled.div``;
 
+export const GroupS = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const DropdownS = styled.div`
+    display: none;
+    background-color: black;
+    position: absolute;
+    padding: 10px;
+    width: 100px;
+    top: 32px;
+    right: 10px;
+`;
+
+export const ProfileS = styled.div`
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    position: relative;
+
+    button {
+        cursor: pointer;
+    }
+
+    &:hover > ${DropdownS} {
+        display: flex;
+        flex-direction: column;
+    }
+`;
+
+export const PictureS = styled.div<{src: any}>`
+    background: url(${({src}) => src});
+    background-size: contain;
+    border: 0;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+`;
+
 export const ContainerS = styled.div`
     display: flex;
     margin: 0 56px;

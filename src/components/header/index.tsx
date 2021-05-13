@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
-import { BackgroundS, ContainerS, LogoS, ButtonS, FeatureS, TextS, LinkS, FeatureCallOutS } from './styles/header';
+import { BackgroundS, ContainerS, LogoS, ButtonS, FeatureS, TextS, GroupS, PictureS, LinkS, ProfileS, DropdownS, FeatureCallOutS } from './styles/header';
 
 interface IHeader {
     bg?: boolean,
@@ -36,6 +36,10 @@ const Frame: React.FC = ({ children, ...restProps }) => {
     return <ContainerS {...restProps}>{children}</ContainerS>
 }
 
+const Group: React.FC = ({ children, ...restProps }) => {
+    return <GroupS {...restProps}>{children}</GroupS>
+}
+
 const Logo: React.FC<{to: string, alt: string, src: string}> = ({ to, ...restProps }) => {
     return (
         <ReactRouterLink to={to}>
@@ -44,8 +48,20 @@ const Logo: React.FC<{to: string, alt: string, src: string}> = ({ to, ...restPro
     )
 }
 
+const Profile: React.FC = ({ children, ...restProps }) => {
+    return <ProfileS {...restProps}>{children}</ProfileS>
+}
+
+const Picture: React.FC<{src?: string}> = ({ src, ...restProps }) => {
+    return <PictureS {...restProps} src={`/images/users/${src}.png`} />
+}
+
 const Text: React.FC = ({ children, ...restProps }) => {
     return <TextS {...restProps}>{children}</TextS>
+}
+
+const Dropdown: React.FC = ({ children, ...restProps }) => {
+    return <DropdownS {...restProps}>{children}</DropdownS>
 }
 
 const Link: React.FC<ILink> = ({ active, children, ...restProps }) => {
@@ -61,4 +77,4 @@ Header.defaultProps = {
 };
 
 
-export default Object.assign(Header, {Frame, Logo, Button, Feature, Text, FeatureCallOut, Link});
+export default Object.assign(Header, {Frame, Logo, Button, Feature, Picture, Group, Profile, Dropdown, Text, FeatureCallOut, Link});

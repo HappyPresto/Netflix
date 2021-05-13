@@ -28,9 +28,22 @@ export function BrowseContainer({ slides }: any) {
 
             <Header src="joker1">
                 <Header.Frame>
-                    <Header.Logo to={AppRoute.Home} src={logo} alt="Netflix" />
-                    <Header.Link>Series</Header.Link>
-                    <Header.Link>Films</Header.Link>
+                    <Header.Group>
+                        <Header.Logo to={AppRoute.Home} src={logo} alt="Netflix" />
+                        <Header.Link>Series</Header.Link>
+                        <Header.Link>Films</Header.Link>
+                    </Header.Group>
+                    <Header.Group>
+                        <Header.Profile>
+                            <Header.Picture src={user.photoURL} />
+                            <Header.Dropdown>
+                                <Header.Group>
+                                    <Header.Picture src={user.photoURL} />
+                                    <Header.Link>{user.displayName}</Header.Link>
+                                </Header.Group>
+                            </Header.Dropdown>
+                        </Header.Profile>
+                    </Header.Group>
                 </Header.Frame>
                 <Header.Feature>
                     <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>

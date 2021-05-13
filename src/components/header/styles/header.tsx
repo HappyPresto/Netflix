@@ -1,10 +1,14 @@
 import styled from 'styled-components/macro';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
-export const BackgroundS = styled.div<{src: any}>`
+export const BackgroundS = styled.div<{src: any, dontShowOnSmallViewPort: boolean}>`
     display: flex;
     flex-direction: column;
-    background: url(${({src}) => (src === 1 ? `../images/misc/${src}.jpg` : `../images/misc/home-bg.jpg`)}) top left / cover no-repeat;
+    background: url(${({src}) => (src ? `../images/misc/${src}.jpg` : `../images/misc/home-bg.jpg`)}) top left / cover no-repeat;
+
+    @media (max-width: 1100px) {
+        ${({ dontShowOnSmallViewPort }) => dontShowOnSmallViewPort && `background: none`}
+    }
 `;
 
 export const ButtonS = styled(ReactRouterLink)<{to:any}>`
@@ -45,6 +49,26 @@ export const ContainerS = styled.div`
     }
 `;
 
+export const FeatureS = styled(ContainerS)`
+    padding: 150px 0 500px 0;
+    flex-direction: column;
+    align-items: normal;
+    width: 50%;
+
+    @media (max-width: 1100px) {
+        display: none;
+    }
+`;
+
+export const FeatureCallOutS = styled.h2`
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    line-height: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+    margin: 0 0 20px 0;
+`;
+
 export const LogoS = styled.img`
     height: 32px;
     width: 108px;
@@ -53,5 +77,29 @@ export const LogoS = styled.img`
     @media (max-width: 1449px) {
         height: 45px;
         width: 167px;
+    }
+`;
+
+export const TextS = styled.p`
+    color: white;
+    font-size: 22px;
+    line-height: normal;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+    margin: 0;
+`;
+
+export const LinkS = styled.p<{active: any}>`
+    color: white;
+    text-decoration: none;
+    margin-right: 30px;
+    font-weight: ${({ active }) => (active === "true" ? "700" : "normal")}
+    cursor: pointer; 
+
+    &:hover {
+        font-weight: bold;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
     }
 `;

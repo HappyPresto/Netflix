@@ -14,4 +14,4 @@ const ReleaseBody: React.FC = () => {
     return <ReleaseBodyS />
 };
 
-export default Object.assign(Loading, {});
+export default Object.assign(Loading, {ReleaseBody});

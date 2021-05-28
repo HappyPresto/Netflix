@@ -6,6 +6,7 @@ import { AppRoute } from '../constans/routes';
 import logo from '../logo.svg';
 
 export function BrowseContainer({ slides }: any) {
+    const [searchTerm, setSearchTerm] = useState("");
     const [profile, setProfile] = useState<any>({});
     const [loading, setLoading] = useState<boolean>(true);
     const { firebase } = useContext(FirebaseContext);
@@ -34,12 +35,19 @@ export function BrowseContainer({ slides }: any) {
                         <Header.Link>Films</Header.Link>
                     </Header.Group>
                     <Header.Group>
+                        <Header.Search 
+                            searchTerm={searchTerm} 
+                            setSearchTerm={setSearchTerm} 
+                        />
                         <Header.Profile>
                             <Header.Picture src={user.photoURL} />
                             <Header.Dropdown>
                                 <Header.Group>
                                     <Header.Picture src={user.photoURL} />
                                     <Header.Link>{user.displayName}</Header.Link>
+                                </Header.Group>
+                                <Header.Group>
+                                    <Header.Link onClick={() => firebase.auth().signOut()}>Sign out</Header.Link>
                                 </Header.Group>
                             </Header.Dropdown>
                         </Header.Profile>
@@ -52,6 +60,7 @@ export function BrowseContainer({ slides }: any) {
                         City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
                         futile attempt to feel like he's part of the world around him.
                     </Header.Text>
+                    <Header.PlayButton>Play</Header.PlayButton>
                 </Header.Feature>
             </Header>
         </>

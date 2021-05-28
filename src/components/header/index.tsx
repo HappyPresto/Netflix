@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
-import { BackgroundS, ContainerS, LogoS, ButtonS, FeatureS, TextS, GroupS, PictureS, LinkS, ProfileS, DropdownS, FeatureCallOutS } from './styles/header';
+import { BackgroundS, ContainerS, LogoS, ButtonS, FeatureS, TextS, GroupS, PictureS, LinkS, PlayButtonS, ProfileS, DropdownS, SearchS, SearchIconS, SearchInputS, FeatureCallOutS } from './styles/header';
 
 interface IHeader {
     bg?: boolean,
@@ -10,6 +10,12 @@ interface IHeader {
 
 interface ILink {
     active?: boolean,
+    onClick?: () => void,
+}
+
+interface ISearch {
+    searchTerm: string,
+    setSearchTerm: (value: any) => void,
 }
 
 const Header: React.FC<IHeader> = ({ bg = true, src, dontShowOnSmallViewPort = false, children, ...restProps }) => {
@@ -48,6 +54,23 @@ const Logo: React.FC<{to: string, alt: string, src: string}> = ({ to, ...restPro
     )
 }
 
+const Search: React.FC<ISearch> = ({ searchTerm, setSearchTerm, ...restProps }) => {
+    const [searchActive, setSearchActive] = useState(false);
+    return (
+        <SearchS {...restProps}>
+            <SearchIconS onClick={() => setSearchActive(!searchActive)}>
+                <img src="/images/icons/search.png" alt="Search" />
+            </SearchIconS>
+            <SearchInputS 
+                value={searchTerm} 
+                onChange={({value}: any) => setSearchTerm(value)}
+                placeholder="Search films and series"
+                active={searchActive}
+            />
+        </SearchS>
+    )
+}
+
 const Profile: React.FC = ({ children, ...restProps }) => {
     return <ProfileS {...restProps}>{children}</ProfileS>
 }
@@ -72,9 +95,8 @@ const Button: React.FC<{to: string}> = ({ to, children, ...restProps}) => {
     return <ButtonS to={to} {...restProps}>{children}</ButtonS>
 }
 
-Header.defaultProps = {
-    bg: true
-};
+const PlayButton: React.FC = ({ children, ...restProps }) => {
+    return <PlayButtonS {...restProps}>{children}</PlayButtonS>
+}
 
-
-export default Object.assign(Header, {Frame, Logo, Button, Feature, Picture, Group, Profile, Dropdown, Text, FeatureCallOut, Link});
+export default Object.assign(Header, {Frame, Logo, Button, Feature, Picture, Group, Profile, Dropdown, Text, PlayButton, FeatureCallOut, Search, Link});

@@ -88,7 +88,7 @@ const Dropdown: React.FC = ({ children, ...restProps }) => {
 }
 
 const Link: React.FC<ILink> = ({ active, children, ...restProps }) => {
-    return <LinkS active={ active ? active : false } {...restProps}>{children}</LinkS>
+    return <LinkS active={ active === true ? active : false } {...restProps}>{children}</LinkS>
 }
 
 const Button: React.FC<{to: string}> = ({ to, children, ...restProps}) => {

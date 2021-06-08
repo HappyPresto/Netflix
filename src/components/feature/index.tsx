@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContainerS, TitleS, SubTitleS } from './style/feature';
+import { ContainerS, TitleS, SubTitleS } from './styles/feature';
 
 const Feature: React.FC = ({ children, ...restProps }) => {
     return <ContainerS {...restProps}>{children}</ContainerS>

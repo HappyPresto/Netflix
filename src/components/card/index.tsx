@@ -68,7 +68,7 @@ const Feature: React.FC<{category: any}> = ({ children, category, ...restProps }
         <FeatureTitleS>{itemFeature.title}</FeatureTitleS>
         <FeatureTextS>{itemFeature.description}</FeatureTextS>
         <FeatureCloseS onClick={() => setShowFeature(false)}>
-          <img src="/images/icons/close.png" alt="close" />
+          <img src="/images/icons/close.png" alt="Close" />
         </FeatureCloseS>
 
         <GroupS flexDirection="column">

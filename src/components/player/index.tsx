@@ -25,7 +25,7 @@ const Video: React.FC<{src: string}> = ({ src, ...restProps }) => {
   const { showPlayer, setShowPlayer} = useContext(PlayerContext);
 
   return showPlayer ? ReactDOM.createPortal(
-    <OverlayS onClick={() => setShowPlayer(false)}>
+    <OverlayS onClick={() => setShowPlayer(false)} data-testid="player">
       <InnerS>
         <video id="netflix-player" controls autoPlay={true}>
           <source src={src} type="video/mp4" />

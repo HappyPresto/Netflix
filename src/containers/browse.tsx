@@ -31,7 +31,8 @@ export function BrowseContainer({ slides }: any) {
         console.log(slideRows);
     }, [slides, category]);
 
-    return profile.displayName ? (
+    console.log("name", profile.displayName);
+    return (
         <>
             {loading ? 
             (
@@ -112,7 +113,7 @@ export function BrowseContainer({ slides }: any) {
                 ))}
             </Card.Group>
             <FooterContainer />
-        </>
-    ) :    
-    <SelectProfileContainer user={user} setProfile={setProfile} />
+        </>)
+    // ) :    
+    // <SelectProfileContainer user={user} setProfile={setProfile} />
 }
